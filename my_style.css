@@ -33,7 +33,7 @@ a {
 
 .outer {
     border: 6px solid black;
-    transform: rotate(0.3turn);
+    transform: rotate(0.25turn);
 }
 
 .box {
