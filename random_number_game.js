@@ -4,8 +4,6 @@ answerIndicator.className = "answer-indicator";
 let maxChoices = 0;
 let guessCount = 0;
 
-console.log("answer = " + randomAnswer);
-
 function submitMaxChoices() {
     let maxChoicesInputDom = document.querySelectorAll(".max-choices");
     let maxChoicesInputBox = maxChoicesInputDom[0];
@@ -58,8 +56,6 @@ function submitGuess() {
     let guessInputDom = document.querySelectorAll(".guess");
     let guessInputBox = guessInputDom[0];
     let guessSubmitButton = guessInputDom[1];
-    console.log(guessInputBox);
-    console.log(guessSubmitButton);
     let guess = guessInputBox.value;
     if (!isNaturalNumber(guess)) {
         alert("자연수를 입력해야합니다.");
