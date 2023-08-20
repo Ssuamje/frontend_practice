@@ -12,8 +12,14 @@ function CommitMessage({ commits, keyword }) {
         const bMatch = keyword && RegExp(`${keyword}`).test(message);
         return bMatch;
       })
-      .map(({commit: {message}}, idx) => {
-        return <li key={idx}>{message}</li>
+      .map(({commit: {message}, html_url}, idx) => {
+        return(
+            <li key={html_url}>
+              <a href={html_url} target="_blank" rel="noopener noreferrer">
+              {message}
+              </a>
+            </li>
+        )
       })}
   </ul>
   )
@@ -42,6 +48,7 @@ function App() {
       const response = await fetch(`https://api.github.com/repos/${repository}/commits?page=1&per_page=100`);
       const commitLogs = await response.json();
       setCommitLogs(commitLogs);
+      console.log(commitLogs);
     }
     getCommitLogs(DEFAULT_REPOSITORY);
   }, [repository]) // depends on, 해당 요소가 변경됨에 따라 실행됨
