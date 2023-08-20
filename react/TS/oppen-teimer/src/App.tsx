@@ -5,7 +5,8 @@ import BackgroundImageComponent from "./components/background/BackgroundImageCon
 const App : FC = () => {
   return (
     <BackgroundImageComponent>
-      <h1>OPPEN TEIMER</h1>
+      <h1 style={{ fontSize: '60px' }}>OPPENTEIMER</h1>
+        <button>Click Me!</button>
     </BackgroundImageComponent>
   );
 }
