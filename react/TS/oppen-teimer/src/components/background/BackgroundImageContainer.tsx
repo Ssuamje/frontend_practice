@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import oppenTeimerImage from '../../assets/oppenhemier3.png';
+import oppenTeimerImage from '../../assets/oppenhemier_all_removed.png';
 
 const BackgroundImageContainer = styled.div`
   width: 100%; // 화면을 꽉 채우기 위해서 100%로 설정

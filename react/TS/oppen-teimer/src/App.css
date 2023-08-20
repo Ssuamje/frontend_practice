@@ -13,9 +13,32 @@ body, html, #root {
 }
 
 h1 {
+  color: rgb(220, 100, 50);
   position: absolute;
   font-size: 2rem;
-  top: 78%;
+  top: 70%;
   left: 10%;
   letter-spacing: 21px;
+  text-shadow:
+  -0.2px -0.2px 0 #000,
+  0.2px -0.2px 0 #000,
+  -0.2px 0.2px 0 #000,
+  0.2px 0.2px 0 #000;;
+}
+
+button {
+    background-color: rgb(220, 100, 50);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: absolute;
+    top: 60%;
+    left: 45%;
 }
