@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import {useEffect, useRef, useState} from 'react'
 import './App.css'
 import { escapeSpecialCharacters } from "./myUtil.js";
 
@@ -19,11 +19,23 @@ function CommitMessage({ commits, keyword }) {
   )
 }
 
+function useDebounce() {
+  const debounceRef = useRef(null);
+
+  const debounce = (callback, delay) => {
+    clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(callback, delay);
+  };
+
+  return debounce;
+}
+
 function App() {
   const [keyword, setKeyword] = useState(null);
   const [repository, setRepository] = useState(null);
   const [commitLogs, setCommitLogs] = useState(null);
   const DEFAULT_REPOSITORY= 'innovationacademy-kr/42cabi';
+  const debounce = useDebounce();
 
   useEffect(() => {
     async function getCommitLogs(repository) {
@@ -38,11 +50,13 @@ function App() {
     if (value === "" || value == null) {
       value = DEFAULT_REPOSITORY;
     }
-    setKeyword(escapeSpecialCharacters(value));
+
+    debounce(() => setKeyword(escapeSpecialCharacters(value)), 200);
+    // setKeyword(escapeSpecialCharacters(value));
   }
 
   function setRepositoryHandler({target: {value}}) {
-    setRepository(value);
+    debounce(() => setRepository(value), 700);
   }
 
   return (
