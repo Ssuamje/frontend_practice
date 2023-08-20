@@ -39,3 +39,16 @@ li:nth-child(even) {
 li:nth-child(odd) { 
   background-color: black;
 }
+
+a {
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
+    &:link{
+        color: skyblue;
+    }
+    &:visited{
+        color: lightgray;
+    }
+}

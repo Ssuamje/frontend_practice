@@ -48,7 +48,6 @@ function App() {
       const response = await fetch(`https://api.github.com/repos/${repository}/commits?page=1&per_page=100`);
       const commitLogs = await response.json();
       setCommitLogs(commitLogs);
-      console.log(commitLogs);
     }
     getCommitLogs(DEFAULT_REPOSITORY);
   }, [repository]) // depends on, 해당 요소가 변경됨에 따라 실행됨
