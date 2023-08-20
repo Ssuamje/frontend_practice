@@ -1,9 +1,26 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
+// Component
+function CommitMessage({commits, commitPrefix}) {
+  return (
+  <ul>
+  {commits && 
+    commits
+      .filter(({commit: {message}}) => {
+        const bMatch = commitPrefix && RegExp(`^${commitPrefix}.+`).test(message);
+        return bMatch;
+      })
+      .map(({commit: {message}}, idx) => {
+        return <li key={idx}>{message}</li>
+      })}
+  </ul>
+  )
+}
+
 function App() {
   const [commitPrefix, setCommitPrefix] = useState(null);
-  const [commitLogs, setCommitLogs] = useState(null);
+  const [commitLogs, setCommitLogs] = useState([]);
 
   useEffect(() => {
     async function getCommitLogs() {
@@ -24,16 +41,9 @@ function App() {
       <h1>Commit Filter</h1>
       <input type="text" name='commitFilterInput' id='commitFilterInput'  onChange={setCommitPrefixHandler}/>
       <h2>{commitPrefix}</h2>
-      <ul>
-        {
-          commitLogs && commitLogs.filter(({commit: {message}}) => {
-            const bMatch = commitPrefix && RegExp(`^${commitPrefix}.+`).test(message);
-            return bMatch;
-          }).map(({commit: {message}}, idx) => {
-            return <li key={idx}>{message}</li>
-          })
-        }
-      </ul>
+      {/* ... 에 대해 알아보기 */}
+      <CommitMessage {...{commitLogs, commitPrefix}} /> 
+      {/* <CommitMessage commits={commitLogs} commitPrefix={commit} />  */}
     </>
   )
 }
