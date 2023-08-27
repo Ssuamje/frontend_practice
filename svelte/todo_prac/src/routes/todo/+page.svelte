@@ -1,17 +1,15 @@
 <script lang="ts">
     import Button from "./components/Button.svelte";
     import InputBox from "./components/InputBox.svelte";
-    import ToDo from "./components/ToDo.svelte";
+    import type {TodoDto} from "./components/dto/TodoDto";
 
     let todoInput = "";
-    let todos = [];
+    let todos: TodoDto[] = [];
 
     function pushTodo(content: string) {
         todos.push({
             content: content,
-            isDone: false,
-            startedAt: Date.now(),
-            doneAt: null
+            startedAt: new Date(Date.now())
         });
     }
 </script>
