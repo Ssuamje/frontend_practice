@@ -1,11 +1,11 @@
 <script lang="ts">
     export let text = "Button";
-    export let bg_color = "#007BFF";
-    export let hover_bg_color = "#0056b3";
+    export let backgroundColor = "#007BFF";
+    export let hoverBackgroundColor = "#0056b3";
     export let handleClick = () => {};
 </script>
 
-<button style="--bg-color: {bg_color}; --hover-bg-color: {hover_bg_color}"
+<button style="--bg-color: {backgroundColor}; --hover-bg-color: {hoverBackgroundColor}"
 on:click={handleClick()}>
     {text}
 </button>
