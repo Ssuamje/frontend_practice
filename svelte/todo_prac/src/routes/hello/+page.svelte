@@ -14,4 +14,3 @@
 <h1>안녕! {$name}</h1>
 <input bind:value={userInput} on:input={() => {
     $name = userInput}} placeholder="이름">
-<!--<button on:click={() => {$name = userInput}}></button>-->
