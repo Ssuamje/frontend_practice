@@ -1,5 +1,6 @@
 <script lang="ts">
-    export let text = "Button";
+    export let normalText = "Button";
+    export let disabledText = "Disabled";
     export let disabled = false;
     export let backgroundColor = "";
     export let hoverBackgroundColor = "";
@@ -13,7 +14,7 @@
 
 <button class={buttonStyle}
         on:click={() => handleClick()}>
-    {disabled ? "Disabled" : text}
+    {disabled ? disabledText : normalText}
 </button>
 
 <style>

@@ -14,12 +14,14 @@
             <h3>{`종료 : ${todo.doneAt.toLocaleDateString()}`}</h3>
         {/if}
     </div>
-    <Button bind:disabled={disabled}
-            handleClick={() => {
-                todo.doneAt = new Date(Date.now());
-            }}
-            text="끝내기!">
-    </Button>
+    <div class="button-div">
+        <Button bind:disabled={disabled}
+                disabledText="완료"
+                handleClick={() => {
+                    todo.doneAt = new Date(Date.now());
+                }} normalText="끝내기!">
+        </Button>
+    </div>
 </div>
 
 <style>
@@ -35,12 +37,17 @@
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     }
 
+    .todo-box h3 {
+        font-family: "D2Coding", serif;
+        margin: 4px;
+    }
+
     .todo-content {
         flex-grow: 1;
     }
 
-    .todo-box h3 {
-        font-family: "D2Coding";
-        margin: 4px;
+    .button-div {
+        display: grid;
+        place-items: center;
     }
 </style>

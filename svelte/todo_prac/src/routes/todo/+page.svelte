@@ -19,12 +19,12 @@
 </script>
 
 <div class="viewport">
-    <div>
+    <div class="div-input">
         <h1> TODO </h1>
         <InputBox bind:inputValue={todoInput} handleEnterPress={pushTodo}
                   placeholder="할 일을 적어주세요"/>
         <Button backgroundColor="black" handleClick={pushTodo} hoverBackgroundColor="skyblue"
-                text="Add"/>
+                normalText="Add"/>
     </div>
     <div class="div-todo">
         {#each todos as todo (todo.id)}
@@ -45,6 +45,13 @@
     h1 {
         font-size: 3rem;
         margin: 0;
+    }
+
+    .div-input {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 70%;
     }
 
     .div-todo {
