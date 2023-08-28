@@ -18,12 +18,10 @@
 <h1> TODO </h1>
 <h2>{todoInput}</h2>
 <InputBox placeholder="할 일을 적어주세요" bind:inputValue ={todoInput}
-    on:keydown={(e) => {
-        if (e.key === "Enter"){
-            pushTodo(todoInput);
-            todoInput = "";
-            console.log(todos);
-        }
+    handleEnterPress={() => {
+        pushTodo(todoInput);
+        todoInput = "";
+        console.log(todos);
     }}
 />
 <Button text="Add" backgroundColor="black" hoverBackgroundColor="skyblue"
