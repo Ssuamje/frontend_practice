@@ -19,12 +19,27 @@
     }
 </script>
 
-<h1> TODO </h1>
-<InputBox bind:inputValue={todoInput} handleEnterPress={pushTodo}
-          placeholder="할 일을 적어주세요"/>
-<Button backgroundColor="black" handleClick={pushTodo} hoverBackgroundColor="skyblue"
-        text="Add"/>
-{#each todos as todo (todo.id)}
-    <ToDo todo={todo}/>
-{/each}
+<div class="viewport">
+    <div>
+        <h1> TODO </h1>
+        <InputBox bind:inputValue={todoInput} handleEnterPress={pushTodo}
+                  placeholder="할 일을 적어주세요"/>
+        <Button backgroundColor="black" handleClick={pushTodo} hoverBackgroundColor="skyblue"
+                text="Add"/>
+    </div>
+    <div style="overflow: scroll">
+        {#each todos as todo (todo.id)}
+            <ToDo todo={todo}/>
+        {/each}
+    </div>
+</div>
 
+<style>
+    .viewport {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+</style>
