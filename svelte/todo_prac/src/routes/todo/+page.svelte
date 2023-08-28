@@ -8,6 +8,7 @@
     let todos: ToDoData[] = [];
 
     function pushTodo() {
+        if (todoInput.length === 0) return;
         todos = [...todos, {
             id: todos.length + 1,
             content: todoInput,
