@@ -8,17 +8,17 @@
 
 <div class="todo-box">
     <div class="todo-content">
-        <h3>{todo.content}</h3>
-        <h3>{todo.startedAt.toLocaleDateString()}</h3>
+        <h3>{`할일 : ${todo.content}`}</h3>
+        <h3>{`시작 : ${todo.startedAt.toLocaleDateString()}`}</h3>
         {#if todo.doneAt}
-            <h3>{todo.doneAt.toLocaleDateString()}</h3>
+            <h3>{`종료 : ${todo.doneAt.toLocaleDateString()}`}</h3>
         {/if}
     </div>
     <Button bind:disabled={disabled}
             handleClick={() => {
                 todo.doneAt = new Date(Date.now());
             }}
-            text="Mark As Done!">
+            text="끝내기!">
     </Button>
 </div>
 

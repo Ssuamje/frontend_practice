@@ -14,7 +14,6 @@
             content: todoInput,
             startedAt: new Date(Date.now())
         }];
-        console.log(todoInput);
         todoInput = "";
     }
 </script>
@@ -27,7 +26,7 @@
         <Button backgroundColor="black" handleClick={pushTodo} hoverBackgroundColor="skyblue"
                 text="Add"/>
     </div>
-    <div style="overflow: scroll">
+    <div class="div-todo">
         {#each todos as todo (todo.id)}
             <ToDo todo={todo}/>
         {/each}
@@ -41,5 +40,19 @@
         align-items: center;
         width: 100vw;
         height: 100vh;
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin: 0;
+    }
+
+    .div-todo {
+        overflow: scroll;
+        width: 50%;
+    }
+
+    .div-todo::-webkit-scrollbar {
+        width: 50%;
     }
 </style>

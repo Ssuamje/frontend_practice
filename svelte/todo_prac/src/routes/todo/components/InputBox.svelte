@@ -23,5 +23,6 @@
         border: 1px solid #ccc;
         border-radius: 5px;
         font-size: 16px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     }
 </style>

@@ -18,6 +18,7 @@
 
 <style>
     .button {
+        width: 50%;
         font-size: 1.0em;
         padding: 0.5em;
         margin: 0.5em;
@@ -25,6 +26,7 @@
         color: white;
         border: none;
         border-radius: 5px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     }
 
     .button:hover {
