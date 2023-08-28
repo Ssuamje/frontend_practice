@@ -1,35 +1,38 @@
 <script lang="ts">
     export let text = "Button";
     export let disabled = false;
-    export let backgroundColor = "#007BFF";
-    export let hoverBackgroundColor = "#0056b3";
-    export let handleClick = () => {};
+    export let backgroundColor = "";
+    export let hoverBackgroundColor = "";
+    export let disabledColor = "";
+    export let handleClick = () => {
+    };
+    $: buttonStyle = disabled
+        ? 'button button-disabled'
+        : "button";
 </script>
 
-<button style="--bg-color: {backgroundColor}; --hover-bg-color: {hoverBackgroundColor}"
-on:click={() => handleClick()}>
-    {text}
+<button class={buttonStyle}
+        on:click={() => handleClick()}>
+    {disabled ? "Disabled" : text}
 </button>
 
-
 <style>
-    button {
+    .button {
         font-size: 1.0em;
         padding: 0.5em;
         margin: 0.5em;
-        background-color: var(--bg-color);
+        background-color: var(--bg-color, #007BFF);
         color: white;
         border: none;
         border-radius: 5px;
     }
 
-    button:hover {
-        background-color: var(--hover-bg-color);
+    .button:hover {
+        background-color: var(--hover-bg-color, #0056b3);
     }
 
-    button[disabled] {
-        /* 여기에 비활성화된 버튼에 대한 스타일을 추가하세요. 예: */
-        background-color: #ccc;
+    .button-disabled, .button-disabled:hover {
+        background-color: var(--disabled-color, #6c757d);
         cursor: not-allowed;
     }
 </style>

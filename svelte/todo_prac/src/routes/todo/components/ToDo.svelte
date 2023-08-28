@@ -14,13 +14,11 @@
             <h3>{todo.doneAt.toLocaleDateString()}</h3>
         {/if}
     </div>
-    <Button text="Mark As Done!"
+    <Button bind:disabled={disabled}
             handleClick={() => {
                 todo.doneAt = new Date(Date.now());
-                console.log(todo.doneAt);
-                console.log(disabled);
             }}
-            {disabled}>
+            text="Mark As Done!">
     </Button>
 </div>
 
@@ -36,9 +34,11 @@
         border-radius: 3px;
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     }
+
     .todo-content {
         flex-grow: 1;
     }
+
     .todo-box h3 {
         font-family: "D2Coding";
         margin: 4px;

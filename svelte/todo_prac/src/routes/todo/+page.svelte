@@ -18,10 +18,10 @@
 </script>
 
 <h1> TODO </h1>
-<InputBox placeholder="할 일을 적어주세요" bind:inputValue ={todoInput}
-    handleEnterPress={pushTodo}/>
-<Button text="Add" backgroundColor="black" hoverBackgroundColor="skyblue"
-        handleClick={pushTodo}/>
+<InputBox bind:inputValue={todoInput} handleEnterPress={pushTodo}
+          placeholder="할 일을 적어주세요"/>
+<Button backgroundColor="black" handleClick={pushTodo} hoverBackgroundColor="skyblue"
+        text="Add"/>
 {#each todos as todo (todo.id)}
     <ToDo todo={todo}/>
 {/each}
