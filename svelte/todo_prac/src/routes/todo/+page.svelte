@@ -14,6 +14,7 @@
             content: todoInput,
             startedAt: new Date(Date.now())
         }];
+        console.log(todoInput);
         todoInput = "";
     }
 </script>

@@ -2,17 +2,18 @@
     export let text = 'Hello World!';
     export let placeholder = "Input Here";
     export let inputValue = "";
-    export let handleEnterPress = () => {};
+    export let handleEnterPress = () => {
+    };
 </script>
 
-<input placeholder={placeholder} bind:value={inputValue}
-       on:keydown={
+<input bind:value={inputValue} on:keypress={
               (event) => {
                 if (event.key === "Enter") {
                      handleEnterPress();
                 }
               }
        }
+       placeholder={placeholder}
 >
 
 <style>
